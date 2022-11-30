@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
+    public bool isLevelOne = true;
     public GameObject pauseButtons;
     public GameObject player;
     public Vector2 coorsDisToGoal;
@@ -27,7 +28,7 @@ public class GameController : MonoBehaviour
     }
     void FixedUpdate(){
 
-       if(notMenu){
+       if(notMenu && isLevelOne){
             SetDistance(player.transform.position);
             if(lineDisToGoal < 0.35){
                 RestartGame();
@@ -93,8 +94,5 @@ public class GameController : MonoBehaviour
     }
     public void DestroyParent(){
         Destroy(transform.parent.gameObject);
-    }
-    public void ToggleInput(){
-        
     }
 }
